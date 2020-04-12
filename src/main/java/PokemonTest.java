@@ -98,13 +98,11 @@ public class PokemonTest {
 		given()
 		.log().all()
 	.when()
-		.get("pokemon/")
+		.get("pokemon-habitat")
 	.then()	
 		.statusCode(200)
-//		.body("count", is(964))
-//		.body("next", is(not(nullValue())))
-//		.body("previous", is(nullValue()))
-//		.body("results", hasSize(20))
+		.body("count", is(9))
+		.body("results", hasSize(9))
 	;
 	}
 	
