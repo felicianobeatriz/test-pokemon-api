@@ -40,6 +40,11 @@ public class PokemonTest {
 		;
 	}
 	
+	/**
+	 * Validando:
+	 * 	- Status code : 200
+	 *  - Nome, especie, experiencia e habilidades
+	 **/
 	@Test
 	public void getFirstPokemon() {
 		given()
@@ -55,6 +60,11 @@ public class PokemonTest {
 		;
 	}
 	
+	/**
+	 * Validando:
+	 * 	- Status code : 200
+	 *  - Retorno : != vazio
+	 **/
 	@Test
 	public void getRandomPokemon() {
 		Random random = new Random();
