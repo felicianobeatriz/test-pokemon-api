@@ -15,11 +15,18 @@ public class PokemonTest {
 		RestAssured.baseURI = "https://pokeapi.co/";
 		RestAssured.basePath = "api/v2/";
 	}
+	/**
+	 * Validando:
+	 *  - Status Code : 200
+	 *  - Pokemons : 964
+	 *  - Pokemons listados : 20
+	 *  - Listas com mais pokemons : True
+	 *  - Listas anteriores : False
+	 * */
 
 	@Test
 	public void getAllPokemon()
 	{
-
 		given()
 			.log().all()
 		.when()
