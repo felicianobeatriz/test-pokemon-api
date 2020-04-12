@@ -47,7 +47,11 @@ public class PokemonTest {
 		.when()
 			.get("pokemon/1")
 		.then()	
-			.statusCode(200);
+			.statusCode(200)
+			.body("name", is("bulbasaur"))
+			.body("name.species", is("bulbasaur"))
+			.body("base_experience", is("64"))
+			.body("abilities.ability.name", contains("chlorophyll", "overgrow"))
 		;
 	}
 	
@@ -59,7 +63,8 @@ public class PokemonTest {
 		.when()
 			.get("pokemon/"+random.nextInt(964))
 		.then()	
-			.statusCode(200);
+			.statusCode(200)
+			.body(is(not(nullValue())));
 		;
 	}
 	
@@ -77,12 +82,16 @@ public class PokemonTest {
 	@Test
 	public void habitatOfPokemons() {
 		given()
-			.log().all()
-		.when()
-			.get("pokemon/1")
-		.then()	
-			.statusCode(200);
-		;
+		.log().all()
+	.when()
+		.get("pokemon/")
+	.then()	
+		.statusCode(200)
+//		.body("count", is(964))
+//		.body("next", is(not(nullValue())))
+//		.body("previous", is(nullValue()))
+//		.body("results", hasSize(20))
+	;
 	}
 	
 	@Test
@@ -92,7 +101,7 @@ public class PokemonTest {
 		.when()
 			.get("pokemon/1")
 		.then()	
-			.statusCode(200);
+			.statusCode(200)
 		;
 	}
 }
