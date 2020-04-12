@@ -1,12 +1,11 @@
-import org.hamcrest.Matchers;
+import static io.restassured.RestAssured.given;
+
+import java.util.Random;
+import static org.hamcrest.Matchers.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import io.restassured.RestAssured;
-
-import static io.restassured.RestAssured.*;
-
-import java.util.Random;
 
 
 public class PokemonTest {
@@ -26,7 +25,11 @@ public class PokemonTest {
 		.when()
 			.get("pokemon")
 		.then()	
-			.statusCode(200);
+			.statusCode(200)
+			.body("count", is(964))
+			.body("next", is(not(nullValue())))
+			.body("previous", is(nullValue()))
+			.body("results", hasSize(20))
 		;
 	}
 	
