@@ -78,6 +78,11 @@ public class PokemonTest {
 		;
 	}
 	
+	/**
+	 * Validando:
+	 * 	- Status code : 200
+	 *  - Nome, especie, experiencia e habilidades
+	 **/
 	@Test
 	public void getLastPokemon() {
 		given()
@@ -93,6 +98,12 @@ public class PokemonTest {
 		;
 	}
 	
+	/**
+	 * Validando:
+	 * 	- Status code : 200
+	 *  - Count  : 9
+	 *  - Resultados : 9
+	 **/
 	@Test
 	public void habitatOfPokemons() {
 		given()
@@ -106,6 +117,11 @@ public class PokemonTest {
 	;
 	}
 	
+	/**
+	 * Validando:
+	 * 	- Status code : 200
+	 *  - Count  : 807
+	 **/
 	@Test
 	public void specieOfPokemons() {
 		given()
