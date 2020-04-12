@@ -54,8 +54,8 @@ public class PokemonTest {
 		.then()	
 			.statusCode(200)
 			.body("name", is("bulbasaur"))
-			.body("name.species", is("bulbasaur"))
-			.body("base_experience", is("64"))
+			.body("species.name", is("bulbasaur"))
+			.body("base_experience", is(64))
 			.body("abilities.ability.name", contains("chlorophyll", "overgrow"))
 		;
 	}
@@ -79,13 +79,17 @@ public class PokemonTest {
 	}
 	
 	@Test
-	public void getFirstPikachu() {
+	public void getLastPokemon() {
 		given()
 			.log().all()
 		.when()
-			.get("pokemon/1")
+			.get("pokemon/10157")
 		.then()	
-			.statusCode(200);
+			.statusCode(200)
+			.body("name", is("necrozma-ultra"))
+			.body("species.name", is("necrozma"))
+			.body("base_experience", is(339))
+			.body("abilities.ability.name", contains("neuroforce"))
 		;
 	}
 	
