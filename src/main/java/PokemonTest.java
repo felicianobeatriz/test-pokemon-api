@@ -113,9 +113,10 @@ public class PokemonTest {
 		given()
 			.log().all()
 		.when()
-			.get("pokemon/1")
+			.get("pokemon-species")
 		.then()	
 			.statusCode(200)
+			.body("count", is(807))
 		;
 	}
 }
